@@ -17,6 +17,15 @@ class_names = open("labels.txt", "r").readlines()
 model_path = "keras_model.h5"
 loaded_model = tf.keras.models.load_model(model_path)
 
+@app.get("/")
+async def root():
+    return "Dentisto Api"
+
+
+@app.get("/check")
+async def root():
+    return "Calling Render.com for every 14 min...."
+
 # Define the prediction route
 @app.post("/predict")
 async def predict_teeth_decay(photo: UploadFile = File(...)):
@@ -59,29 +68,3 @@ async def predict_teeth_decay(photo: UploadFile = File(...)):
     result= f"result : {class_name[2:]} - accuracy score : {confidence_score}"
 
     return result
-
-
-    # # Read and process the image
-    # image_bytes = await image.read()
-    # image_pil = Image.open(io.BytesIO(image_bytes))
-
-    # # Preprocess the image to make it compatible with the model
-    # # For example, resize the image, normalize pixel values, etc.
-    # # Depending on how the model was trained, you may need to preprocess the image accordingly.
-
-    # # Convert the image to a NumPy array
-    # # processed_image = ...
-
-    # # Make predictions using the loaded Keras model
-    # # predictions = loaded_model.predict(processed_image)
-
-    # # Replace the above line with actual prediction code based on your model and preprocessing steps
-
-    # # For demonstration purposes, we'll return a dummy result
-    # # You should replace this with the actual result based on your model predictions
-    # result = {
-    #     "filename": image.filename,
-    #     "result": "decayed" if "decay" in image.filename.lower() else "healthy",
-    # }
-
-    # return result
