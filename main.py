@@ -1,5 +1,5 @@
 from fastapi import FastAPI, UploadFile, File
-# import tensorflow as tf
+import tensorflow as tf
 from PIL import Image, ImageOps
 from keras.models import load_model
 import numpy as np
