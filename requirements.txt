@@ -7,4 +7,4 @@ tensorflow
 tensorflow-cpu
 typing_extensions
 uvicorn
-multipart
+python-multipart
