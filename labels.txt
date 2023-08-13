@@ -1,0 +1,3 @@
+0 Gingivitis
+1 Tooth discolouration
+2 Good Teeth
